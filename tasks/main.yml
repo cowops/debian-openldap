@@ -1,7 +1,10 @@
 ---
 - name: install openldap
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - slapd
-    - ldap-utils
-    - ldapscripts
+  apt:
+    name: {{ packages }}
+    state: latest
+  vars:
+    packages:
+      - slapd
+      - ldap-utils
+      - ldapscripts
